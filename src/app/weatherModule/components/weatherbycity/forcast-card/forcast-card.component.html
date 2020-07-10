@@ -1,0 +1,16 @@
+<mat-card class="card">
+  <mat-card-header class="card-header">
+    <mat-card-title>{{ this.forcast.Date | date:'EEEE' }}</mat-card-title>
+  </mat-card-header>
+  <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+  <mat-card-content class="card-content">
+    <img mat-card-avatar class="header-image" src="assets/weather-icons/0{{this.forcast.Day.Icon}}-s.png">
+    <mat-card-title>{{ this.forcast.Temperature.Maximum.Value + '' + this.forcast.Temperature.Maximum.Unit}}</mat-card-title>
+    <label>{{ this.forcast.Day.IconPhrase }}</label>
+  </mat-card-content>
+  <hr>
+  <mat-card-footer class="card-footer">
+    <img mat-card-avatar class="example-header-image" src="assets/weather-icons/{{this.forcast.Night.Icon}}-s.png">
+    <mat-card-subtitle class="night-text"> Night {{ this.forcast.Temperature.Minimum.Value + '' + this.forcast.Temperature.Minimum.Unit}} - {{ this.forcast.Night.IconPhrase }}</mat-card-subtitle>
+  </mat-card-footer>
+</mat-card>

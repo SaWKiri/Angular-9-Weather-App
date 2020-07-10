@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostBinding } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'weather-app';
+  title = 'WeatherApp';
+  private isDark = false;
+
+  @HostBinding('class')
+  get themeMode() {
+    return this.isDark ? 'unicorn-dark-theme': 'theme';
+  }
 }

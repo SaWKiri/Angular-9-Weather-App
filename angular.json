@@ -28,6 +28,7 @@
               "src/assets"
             ],
             "styles": [
+              "src/toastr.css",
               "src/styles.scss"
             ],
             "scripts": []

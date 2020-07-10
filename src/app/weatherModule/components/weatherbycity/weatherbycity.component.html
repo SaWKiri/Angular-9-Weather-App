@@ -1,0 +1,64 @@
+<div class="city-search">
+  <mat-form-field class="city-search-input">
+    <mat-label>Search By City</mat-label>
+    <input
+      type="text"
+      placeholder="search"
+      matInput
+      [ngModel]="autoCompleteValue"
+      (input)="autoCompleteInput.next($event.target.value)"
+      [matAutocomplete]="auto"
+      appEnglishOnly
+    />
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+  <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+    <mat-option
+      *ngFor="let suggestion of autoCompletedSuggestions"
+      [value]="suggestion.LocalizedName"
+      (click)="selectSuggestion(suggestion)"
+    >
+      {{ suggestion.LocalizedName }}
+    </mat-option>
+  </mat-autocomplete>
+</div>
+<div class="content-wrapper">
+  <mat-card
+    class="weather-card"
+    *ngIf="this.storeFacade.currentCityName$ | async"
+  >
+    <mat-card-header class="weather-card-header">
+      <img
+        mat-card-avatar
+        src="assets/weather-icons/0{{
+          this.storeFacade.cuurentWeatherIcon$ | async
+        }}-s.png"
+        class="weather-header-image"
+      />
+      <mat-card-title class="card-city-name">{{
+        this.storeFacade.currentCityName$ | async
+      }}</mat-card-title>
+      <mat-card-subtitle class="city-temp"
+        >{{ this.storeFacade.currentCityTemp$ | async
+        }}<span>&#176;</span></mat-card-subtitle
+      >
+      <span class="spacer"></span>
+      <mat-card-actions>
+        <button mat-raised-button color="{{this.inFavorites}}" (click)="addRemoveFromFav()">
+          <mat-icon>favorite</mat-icon>
+        </button>
+      </mat-card-actions>
+    </mat-card-header>
+
+    <mat-card-content class="main-card-content">
+      <h1>{{ this.storeFacade.currentWeatherText$ | async }}</h1>
+      <div class="forcast">
+        <app-forcast-card
+          *ngFor="let forcast of this.storeFacade.fiveDayForcast$ | async"
+          [forcast]="forcast"
+        >
+        </app-forcast-card>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

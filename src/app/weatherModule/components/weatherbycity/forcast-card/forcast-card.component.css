@@ -1,0 +1,37 @@
+.card {
+  width: 250px;
+  margin-left: 50px;
+  background: #2980b9; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #2980b9, #6dd5fa, #ffffff); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #2980b9, #6dd5fa, #ffffff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.header-image {
+  /* background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg'); */
+  background-size: cover;
+}
+
+.card-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+  flex-flow: row;
+}
+
+.night-text {
+  margin-top: 10px;
+}
