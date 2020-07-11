@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { WeatherAppStoreService } from './weatherAppStoreFacade.service';
-import { switchMap, take } from 'rxjs/operators';
+import { switchMap, take, map } from 'rxjs/operators';
 import { AccuweatherApiService } from './accuweather-api.service';
-import { Observable, zip } from 'rxjs';
+import { Observable, zip, of } from 'rxjs';
 import { CityWeather } from '../models/CityWeather';
 
 @Injectable({
@@ -16,15 +16,18 @@ export class FavoritesService {
 
   getFavorites() {
     return this.storeFacade.favorites$.pipe(
-      // take(1),
       switchMap((f) => {
-        debugger;
         let data: Observable<CityWeather>[] = [];
+        if(f.length === 0)
+        {
+          return of([]);
+        }
         f.forEach((element) => {
           data.push(this.accuWeatherApi.getCurrentConditions(element.Key));
         });
         return zip(...data);
-      })
+      }),
+      map(zip => zip)
     );
   }
 

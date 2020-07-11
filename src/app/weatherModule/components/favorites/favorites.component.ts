@@ -14,7 +14,7 @@ export class FavoritesComponent implements OnInit {
 
   constructor(public favoritesService: FavoritesService) {
     this.favoritesService.getFavorites().pipe(
-      distinctUntilChanged((a,b) => JSON.stringify(a) === JSON.stringify(b)),
+      // distinctUntilChanged((a,b) => JSON.stringify(a) === JSON.stringify(b)),
       tap(a => {
         this.favorites = a;
       })
@@ -40,12 +40,5 @@ export class FavoritesComponent implements OnInit {
       this.extractName(weather.Link),
       this.extractKey(weather.Link)
     );
-
-    this.favoritesService.getFavorites().pipe(
-      take(1),
-      tap(a => {
-        this.favorites = a;
-      })
-    ).subscribe();
   }
 }

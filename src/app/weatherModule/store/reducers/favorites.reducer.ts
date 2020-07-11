@@ -8,25 +8,31 @@ import { Favorite } from '../../models/favorite';
 const favoritesReducer = createReducer(
   fromFavorites.initialState,
   on(favoriteAction.addFavorite, (state, action) => {
-    if ( state && state.findIndex((arr) => arr.Key === action.payload.fav.Key) > -1) {
+    if (
+      state &&
+      state.findIndex((arr) => arr.Key === action.payload.fav.Key) > -1
+    ) {
       return state;
     } else {
-      return update(state, { $push: [{Key: action.payload.fav.Key, LocalizedName:action.payload.fav.LocalizedName}]});
+      return update(state, {
+        $push: [{
+          Key: action.payload.fav.Key,
+          LocalizedName: action.payload.fav.LocalizedName,
+        }],
+      });
     }
   }),
   on(favoriteAction.removeFavorite, (state, action) => {
-    if(!state) {
+    if (!state) {
       return state;
     }
-    let index = state.findIndex(
-      (arr) => arr.Key == action.payload.fav.Key
-    );
+    let index = state.findIndex((arr) => arr.Key == action.payload.fav.Key);
     if (index < 0) {
       return state;
     } else {
-      return update(state, { $splice: [[index,1]] });
+      return update(state, { $splice: [[index, 1]] });
     }
-  }),
+  })
 );
 
 export function reducer(state: autoCompleteOption[], action: Action) {
