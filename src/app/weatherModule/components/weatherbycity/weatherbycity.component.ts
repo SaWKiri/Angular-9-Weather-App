@@ -109,6 +109,7 @@ export class WeatherbycityComponent implements OnInit, OnDestroy {
         payload: { cityKey: option.Key },
       })
     );
+    this.checkFavorite();
   }
 
   checkFavorite() {

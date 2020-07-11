@@ -16,8 +16,9 @@ export class FavoritesService {
 
   getFavorites() {
     return this.storeFacade.favorites$.pipe(
-      take(1),
+      // take(1),
       switchMap((f) => {
+        debugger;
         let data: Observable<CityWeather>[] = [];
         f.forEach((element) => {
           data.push(this.accuWeatherApi.getCurrentConditions(element.Key));

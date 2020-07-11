@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   apiUrl: 'https://cors-anywhere.herokuapp.com/http://dataservice.accuweather.com',
-  API_KEY: 'waAaEwlCoR3BA9uHpA4THbY6nVZrrQj3',
+  API_KEY: 'd8bTUfXaTWlLQLJlcmgFvEWUbWO6nczd',
 };
 
 /*

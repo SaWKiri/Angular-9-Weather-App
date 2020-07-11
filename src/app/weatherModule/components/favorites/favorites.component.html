@@ -1,38 +1,33 @@
 <div class="grid-container">
   <mat-card
     class="card"
-    *ngFor="let weather of this.favoritesService.getFavorites() | async"
+    *ngFor="let weather of favorites"
   >
     <mat-card-header>
       <img
         mat-card-avatar
         class="header-image"
-        src="assets/weather-icons/{{ weather.WeatherIcon }}.png"
+        src="assets/weather-icons/{{ weather[0].WeatherIcon }}.png"
       />
-      <mat-card-title>{{
-        extractName(weather.Link) | titlecase
-      }}</mat-card-title>
-      <mat-card-subtitle>{{
-        weather.LocalObservationDateTime | date: "EEEE"
-      }}</mat-card-subtitle>
+      <mat-card-title>{{extractName(weather[0].Link) | titlecase}}</mat-card-title>
+      <mat-card-subtitle>{{weather[0].LocalObservationDateTime | date: "EEEE"}}</mat-card-subtitle>
       <div class="spacer"></div>
       <mat-icon
         aria-hidden="false"
         aria-label="remove"
-        (click)="removeFromFavorites(weather)"
-        >highlight_off</mat-icon
+        (click)="removeFromFavorites(weather[0])">highlight_off</mat-icon
       >
     </mat-card-header>
     <mat-card-content class="card-content">
-      <p>
-        {{ weather.WeatherText }}
+      <p class="weather-text">
+        {{ weather[0].WeatherText }}
       </p>
-      <p>
-        {{ weather.Temperature.Metric.Value + "" + weather.Temperature.Metric.Unit }}
+      <p class="weather-temp">
+        {{ weather[0].Temperature.Metric.Value + "" + weather[0].Temperature.Metric.Unit }}
       </p>
     </mat-card-content>
   </mat-card>
 </div>
-<div class="empty-fav" *ngIf="!(this.favoritesService.getFavorites() | async)">
+<div class="empty-fav" *ngIf="favorites.length === 0">
   <h1>Favorites Empty</h1>
 </div>

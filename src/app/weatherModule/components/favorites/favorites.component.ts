@@ -1,13 +1,25 @@
 import { Component, OnInit, NgModule } from '@angular/core';
 import { FavoritesService } from '../../services/favorites.service';
 import { CityWeather } from '../../models/CityWeather';
+import { Favorite } from '../../models/favorite';
+import { tap, distinctUntilChanged, take } from 'rxjs/operators';
 
 @Component({
   templateUrl: './favorites.component.html',
   styleUrls: ['./favorites.component.scss'],
 })
 export class FavoritesComponent implements OnInit {
-  constructor(public favoritesService: FavoritesService) {}
+  favorites: CityWeather[] = [];
+
+
+  constructor(public favoritesService: FavoritesService) {
+    this.favoritesService.getFavorites().pipe(
+      distinctUntilChanged((a,b) => JSON.stringify(a) === JSON.stringify(b)),
+      tap(a => {
+        this.favorites = a;
+      })
+    ).subscribe();
+  }
 
   ngOnInit(): void {}
 
@@ -28,5 +40,12 @@ export class FavoritesComponent implements OnInit {
       this.extractName(weather.Link),
       this.extractKey(weather.Link)
     );
+
+    this.favoritesService.getFavorites().pipe(
+      take(1),
+      tap(a => {
+        this.favorites = a;
+      })
+    ).subscribe();
   }
 }
