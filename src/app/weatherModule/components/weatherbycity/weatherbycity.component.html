@@ -30,9 +30,7 @@
     <mat-card-header class="weather-card-header">
       <img
         mat-card-avatar
-        src="assets/weather-icons/0{{
-          this.storeFacade.cuurentWeatherIcon$ | async
-        }}-s.png"
+        src="assets/weather-icons/{{this.storeFacade.cuurentWeatherIcon$ | async}}.png"
         class="weather-header-image"
       />
       <mat-card-title class="card-city-name">{{

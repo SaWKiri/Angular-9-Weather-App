@@ -27,7 +27,11 @@ export class HttpErrorInterceptor implements HttpInterceptor {
           this.toastr.error(errorMsg, 'Error');
         } else {
           console.log('this is server side error');
-          errorMsg = `Error Code: ${error.status},  Message: ${error.message}`;
+          if (error.status === 503) {
+            errorMsg = `Error Code: ${error.status},  Message: Maximum requests reach. please try later`;
+          } else {
+            errorMsg = `Error Code: ${error.status},  Message: ${error.message}`;
+          }
           this.toastr.error(errorMsg, 'Error');
         }
         console.log(errorMsg);

@@ -1,6 +1,7 @@
 
+import { environment } from '../../../environments/environment';
 
-const baseUrl = 'http://dataservice.accuweather.com';
+const baseUrl = environment.apiUrl;
 
 const repositoryUrlGeoPositionUrl = baseUrl + '/locations/v1';
 const repositoryUrlGeoPositioController = {

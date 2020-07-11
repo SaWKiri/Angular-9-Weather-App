@@ -25,17 +25,18 @@ export class WeatherAppStoreService {
   currentCityTemp$ = this._store.pipe(
     select(weatherAppSelectors.cityWeatherSelectors.currentCityWeather),
     filter((cityWeather) => cityWeather !== null),
-    map(
-      (selectedCity) =>
-        selectedCity.Temperature.Metric.Value +
+    map((selectedCity) => {
+      return (
+        selectedCity[0].Temperature.Metric.Value +
         '' +
-        selectedCity.Temperature.Metric.Unit
-    )
+        selectedCity[0].Temperature.Metric.Unit
+      );
+    })
   );
   cuurentWeatherIcon$ = this._store.pipe(
     select(weatherAppSelectors.cityWeatherSelectors.currentCityWeather),
     filter((a) => a !== null),
-    map((currWeather) => currWeather.WeatherIcon)
+    map((currWeather) => currWeather[0].WeatherIcon)
   );
 
   currentWeatherText$ = this._store.pipe(

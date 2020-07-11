@@ -11,9 +11,6 @@ const favoritesReducer = createReducer(
     if ( state && state.findIndex((arr) => arr.Key === action.payload.fav.Key) > -1) {
       return state;
     } else {
-      if(state === null) {
-        return update(state, { $set: [{Key: action.payload.fav.Key , LocalizedName: action.payload.fav.LocalizedName}]});
-      }
       return update(state, { $push: [{Key: action.payload.fav.Key, LocalizedName:action.payload.fav.LocalizedName}]});
     }
   }),

@@ -1,23 +1,34 @@
 <div class="grid-container">
-  <mat-card class="card" *ngFor="let weather of this.favoritesService.getFavorites() | async">
+  <mat-card
+    class="card"
+    *ngFor="let weather of this.favoritesService.getFavorites() | async"
+  >
     <mat-card-header>
       <img
         mat-card-avatar
         class="header-image"
-        src="assets/weather-icons/01-s.png"
+        src="assets/weather-icons/{{ weather.WeatherIcon }}.png"
       />
-      <mat-card-title>{{extractName(weather.Link) | titlecase}}</mat-card-title>
-      <mat-card-subtitle>{{weather.LocalObservationDateTime | date: 'EEEE'}}</mat-card-subtitle>
+      <mat-card-title>{{
+        extractName(weather.Link) | titlecase
+      }}</mat-card-title>
+      <mat-card-subtitle>{{
+        weather.LocalObservationDateTime | date: "EEEE"
+      }}</mat-card-subtitle>
       <div class="spacer"></div>
-      <mat-icon aria-hidden="false" aria-label="remove" (click)="removeFromFavorites(weather)">highlight_off</mat-icon>
+      <mat-icon
+        aria-hidden="false"
+        aria-label="remove"
+        (click)="removeFromFavorites(weather)"
+        >highlight_off</mat-icon
+      >
     </mat-card-header>
-    <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
     <mat-card-content class="card-content">
       <p>
-        {{weather.WeatherText}}
+        {{ weather.WeatherText }}
       </p>
       <p>
-        {{weather.Temperature.Metric.Value + '' + weather.Temperature.Metric.Unit}}
+        {{ weather.Temperature.Metric.Value + "" + weather.Temperature.Metric.Unit }}
       </p>
     </mat-card-content>
   </mat-card>
