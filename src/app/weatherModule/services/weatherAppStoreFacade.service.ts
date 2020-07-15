@@ -9,44 +9,41 @@ import { autoCompleteOption } from '../models/autocomplete';
 import { weatherAppSelector } from '../store/selectors/common';
 import { Favorite } from '../models/favorite';
 import { favoriteAction } from '../store/actions/favorites.actions';
+import { TempSelectionService } from './tempSelection.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class WeatherAppStoreService {
-  constructor(private _store: Store<ModuleState>) {}
+  constructor(private _store: Store<ModuleState>, private tempSelectionService: TempSelectionService) {}
 
   currentCityName$ = this._store.pipe(
-    select(weatherAppSelectors.optionSelectors.selectedCity),
+    select(weatherAppSelectors.areaWeatherSelectors.areaName),
     filter((option) => option !== null),
-    map((option) => option.LocalizedName)
   );
 
   currentCityTemp$ = this._store.pipe(
-    select(weatherAppSelectors.cityWeatherSelectors.currentCityWeather),
-    filter((cityWeather) => cityWeather !== null),
-    map((selectedCity) => {
-      return (
-        selectedCity[0].Temperature.Metric.Value +
-        '' +
-        selectedCity[0].Temperature.Metric.Unit
-      );
+    select(weatherAppSelectors.areaWeatherSelectors.areaTemp),
+    filter((temp) => temp !== null),
+    map((temp) => {
+     if(this.tempSelectionService.getIsCelsius()){
+       return temp.Metric.Value + ' ' + temp.Metric.Unit;
+     }
+     return temp.Imperial.Value + ' ' + temp.Imperial.Unit;
     })
   );
   cuurentWeatherIcon$ = this._store.pipe(
-    select(weatherAppSelectors.cityWeatherSelectors.currentCityWeather),
+    select(weatherAppSelectors.areaWeatherSelectors.areaWeatherIcon),
     filter((a) => a !== null),
-    map((currWeather) => currWeather[0].WeatherIcon)
   );
 
   currentWeatherText$ = this._store.pipe(
-    select(weatherAppSelectors.cityWeatherSelectors.currentCityWeather),
+    select(weatherAppSelectors.areaWeatherSelectors.areaWeatherText),
     filter((a) => a !== null),
-    map((currWeather) => currWeather.WeatherText)
   );
 
   fiveDayForcast$: Observable<DailyForecast[]> = this._store.pipe(
-    select(weatherAppSelectors.forcastSelectors.cityForcast),
+    select(weatherAppSelectors.areaWeatherSelectors.areaWeatherForcast),
     filter((forcast) => forcast !== null),
     map((forcast) => forcast.DailyForecasts)
   );
