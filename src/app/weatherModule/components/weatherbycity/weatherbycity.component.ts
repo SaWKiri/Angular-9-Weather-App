@@ -19,10 +19,7 @@ import { selectedCityActions } from '../../store/actions/selectedCity.action';
 import { WeatherAppStoreService } from '../../services/weatherAppStoreFacade.service';
 import { cityWeatherActions } from '../../store/actions/cityWeather.actions';
 import { forcastActoions } from '../../store/actions/forcast.action';
-import {
-  GeoLocation,
-  GeolocationService,
-} from '../../services/geolocation.service';
+import { GeolocationService } from '../../services/geolocation.service';
 import { favoriteAction } from '../../store/actions/favorites.actions';
 
 @Component({

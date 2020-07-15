@@ -4,8 +4,9 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://cors-anywhere.herokuapp.com/http://dataservice.accuweather.com',
+  apiUrl:'https://cors-anywhere.herokuapp.com/http://dataservice.accuweather.com',
   API_KEY: 'd8bTUfXaTWlLQLJlcmgFvEWUbWO6nczd',
+  DefaultLocation: { lat: 32.109333, lon: 34.855499 },
 };
 
 /*

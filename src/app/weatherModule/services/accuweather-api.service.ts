@@ -5,9 +5,9 @@ import { repositoryUrl } from './repository-urls';
 import { CityWeather } from '../models/CityWeather';
 import { Forcast } from '../models/forcast';
 import { autoCompleteOption } from '../models/autocomplete';
-import { GeoLocation } from './geolocation.service';
 import { AccuWeatherGeo } from '../models/accuWeatherGeo';
 import { environment } from '../../../environments/environment';
+import { GeoLocation } from '../models/geoLocation';
 
 @Injectable({
   providedIn: 'root',
@@ -40,8 +40,7 @@ export class AccuweatherApiService {
     return this.getRequest(repositoryUrl.geoposition.autoComplete, {q: `${key}`});
   }
 
-  get5DaysOfForecasts(key: string): Observable<Forcast> {
-    let metric = true;
+  get5DaysOfForecasts(key: string, metric: boolean = true): Observable<Forcast> {
     return this.getRequest(
       repositoryUrl.forcasts.getFiveDaysForcast(key),
       {metric: metric}

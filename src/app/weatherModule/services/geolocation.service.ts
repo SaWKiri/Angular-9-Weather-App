@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { AccuweatherApiService } from './accuweather-api.service';
+import { environment } from 'src/environments/environment';
+import { GeoLocation } from '../models/geoLocation';
 
 @Injectable({
   providedIn: 'root',
@@ -33,12 +35,7 @@ export class GeolocationService {
     if(this.geolocation.value !== null){
       return this.accuweatherApiService.getGeoPosition({lat: this.geolocation.value.lat, lon: this.geolocation.value.lon} as GeoLocation);
     }else {
-      return this.accuweatherApiService.getGeoPosition({lat:32.109333, lon: 34.855499} as GeoLocation);
+      return this.accuweatherApiService.getGeoPosition(environment.DefaultLocation);
     }
   }
-}
-
-export interface GeoLocation {
-  lat: number;
-  lon: number;
 }
