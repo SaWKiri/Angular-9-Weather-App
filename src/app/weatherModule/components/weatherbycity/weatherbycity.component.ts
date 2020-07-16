@@ -31,7 +31,6 @@ export class WeatherbycityComponent implements OnInit, OnDestroy {
   autoCompleteValue: any;
   autoCompletedSuggestions: any[];
   autoCompleteInput: Subject<String> = new Subject<String>();
-  inFavorites: 'accent' | 'primary' = 'primary';
 
   constructor(
     private accuweatherApiService: AccuweatherApiService,
@@ -42,7 +41,7 @@ export class WeatherbycityComponent implements OnInit, OnDestroy {
     this.autoCompleteInput
       .pipe(
         filter((data: string) => data.length > 0),
-        debounceTime(600),
+        debounceTime(900),
         switchMap((data: string) => {
           const a = this.accuweatherApiService.getAutoComplete(data);
           return a;
@@ -88,7 +87,6 @@ export class WeatherbycityComponent implements OnInit, OnDestroy {
       )
       .subscribe();
 
-    this.checkFavorite();
   }
 
   selectSuggestion(option: autoCompleteOption) {
@@ -106,32 +104,8 @@ export class WeatherbycityComponent implements OnInit, OnDestroy {
         payload: { cityKey: option.Key },
       })
     );
-    this.checkFavorite();
   }
 
-  checkFavorite() {
-    this.storeFacade.favorites$
-      .pipe(
-        withLatestFrom(this.storeFacade.currentCityName$),
-        map(([favorits, currentCityName]) => {
-          let index = favorits.find((a) => a.LocalizedName === currentCityName);
-          if (index) {
-            this.inFavorites = 'accent';
-          } else {
-            this.inFavorites = 'primary';
-          }
-        })
-      )
-      .subscribe();
-  }
-
-  addRemoveFromFav(areaName: string, areaKey: string) {
-    if (this.inFavorites === 'primary') {
-      this.storeFacade.addToFavorites(areaName, areaKey);
-    } else {
-      this.storeFacade.removeFromFavorites(areaName, areaKey);
-    }
-  }
 
   ngOnInit(): void {}
 

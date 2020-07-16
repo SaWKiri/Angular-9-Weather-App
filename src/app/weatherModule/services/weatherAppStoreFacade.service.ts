@@ -10,16 +10,20 @@ import { weatherAppSelector } from '../store/selectors/common';
 import { Favorite } from '../models/favorite';
 import { favoriteAction } from '../store/actions/favorites.actions';
 import { TempSelectionService } from './tempSelection.service';
+import { async } from '@angular/core/testing';
 
 @Injectable({
   providedIn: 'root',
 })
 export class WeatherAppStoreService {
-  constructor(private _store: Store<ModuleState>, private tempSelectionService: TempSelectionService) {}
+  constructor(
+    private _store: Store<ModuleState>,
+    private tempSelectionService: TempSelectionService
+  ) {}
 
   currentCityName$ = this._store.pipe(
     select(weatherAppSelectors.areaWeatherSelectors.areaName),
-    filter((option) => option !== null),
+    filter((option) => option !== null)
   );
   currentCityKey$ = this._store.pipe(
     select(weatherAppSelectors.areaWeatherSelectors.areaKey)
@@ -29,20 +33,20 @@ export class WeatherAppStoreService {
     select(weatherAppSelectors.areaWeatherSelectors.areaTemp),
     filter((temp) => temp !== null),
     map((temp) => {
-     if(this.tempSelectionService.getIsCelsius()){
-       return temp.Metric.Value + ' ' + temp.Metric.Unit;
-     }
-     return temp.Imperial.Value + ' ' + temp.Imperial.Unit;
+      if (this.tempSelectionService.getIsCelsius()) {
+        return temp.Metric.Value + ' ' + temp.Metric.Unit;
+      }
+      return temp.Imperial.Value + ' ' + temp.Imperial.Unit;
     })
   );
   cuurentWeatherIcon$ = this._store.pipe(
     select(weatherAppSelectors.areaWeatherSelectors.areaWeatherIcon),
-    filter((a) => a !== null),
+    filter((a) => a !== null)
   );
 
   currentWeatherText$ = this._store.pipe(
     select(weatherAppSelectors.areaWeatherSelectors.areaWeatherText),
-    filter((a) => a !== null),
+    filter((a) => a !== null)
   );
 
   fiveDayForcast$: Observable<DailyForecast[]> = this._store.pipe(
@@ -72,6 +76,16 @@ export class WeatherAppStoreService {
     this._store.dispatch(
       favoriteAction.removeFavorite({
         payload: { fav: { Key: key, LocalizedName: name } },
+      })
+    );
+  };
+  isInFavorites = (key: string): Observable<'accent' | 'primary'> => {
+    return this._store.pipe(
+      select(weatherAppSelectors.favoritesSelectors.getFavorites),
+      map((favorites) => {
+        return favorites.findIndex((f) => f.Key === key) >= 0
+          ? 'accent'
+          : 'primary';
       })
     );
   };

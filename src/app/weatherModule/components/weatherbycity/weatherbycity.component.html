@@ -45,13 +45,23 @@
         >
         <span class="spacer"></span>
         <mat-card-actions>
-          <button
-            mat-raised-button
-            color="{{ this.inFavorites }}"
-            (click)="addRemoveFromFav(areaName, areaKey)"
+          <ng-container
+            *ngIf="
+              this.storeFacade.isInFavorites(areaKey) | async as inFavorite
+            "
           >
-            <mat-icon>favorite</mat-icon>
-          </button>
+            <button
+              mat-raised-button
+              color="{{ inFavorite }}"
+              (click)="
+                inFavorite === 'accent'
+                  ? this.storeFacade.removeFromFavorites(areaName, areaKey)
+                  : this.storeFacade.addToFavorites(areaName, areaKey)
+              "
+            >
+              <mat-icon>favorite</mat-icon>
+            </button>
+          </ng-container>
         </mat-card-actions>
       </mat-card-header>
 
