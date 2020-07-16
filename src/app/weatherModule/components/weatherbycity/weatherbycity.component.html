@@ -23,40 +23,48 @@
   </mat-autocomplete>
 </div>
 <div class="content-wrapper">
-  <mat-card
-    class="weather-card"
-    *ngIf="this.storeFacade.currentCityName$ | async"
-  >
-    <mat-card-header class="weather-card-header">
-      <img
-        mat-card-avatar
-        src="assets/weather-icons/{{this.storeFacade.cuurentWeatherIcon$ | async}}.png"
-        class="weather-header-image"
-      />
-      <mat-card-title class="card-city-name">{{
-        this.storeFacade.currentCityName$ | async
-      }}</mat-card-title>
-      <mat-card-subtitle class="city-temp"
-        >{{ this.storeFacade.currentCityTemp$ | async
-        }}<span>&#176;</span></mat-card-subtitle
-      >
-      <span class="spacer"></span>
-      <mat-card-actions>
-        <button mat-raised-button color="{{this.inFavorites}}" (click)="addRemoveFromFav()">
-          <mat-icon>favorite</mat-icon>
-        </button>
-      </mat-card-actions>
-    </mat-card-header>
-
-    <mat-card-content class="main-card-content">
-      <h1>{{ this.storeFacade.currentWeatherText$ | async }}</h1>
-      <div class="forcast">
-        <app-forcast-card
-          *ngFor="let forcast of this.storeFacade.fiveDayForcast$ | async"
-          [forcast]="forcast"
+  <ng-container *ngIf="this.storeFacade.currentCityKey$ | async as areaKey">
+    <mat-card
+      class="weather-card"
+      *ngIf="this.storeFacade.currentCityName$ | async as areaName"
+    >
+      <mat-card-header class="weather-card-header">
+        <img
+          mat-card-avatar
+          src="assets/weather-icons/{{
+            this.storeFacade.cuurentWeatherIcon$ | async
+          }}.png"
+          class="weather-header-image"
+        />
+        <mat-card-title class="card-city-name">{{
+          this.storeFacade.currentCityName$ | async
+        }}</mat-card-title>
+        <mat-card-subtitle class="city-temp"
+          >{{ this.storeFacade.currentCityTemp$ | async
+          }}<span>&#176;</span></mat-card-subtitle
         >
-        </app-forcast-card>
-      </div>
-    </mat-card-content>
-  </mat-card>
+        <span class="spacer"></span>
+        <mat-card-actions>
+          <button
+            mat-raised-button
+            color="{{ this.inFavorites }}"
+            (click)="addRemoveFromFav(areaName, areaKey)"
+          >
+            <mat-icon>favorite</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card-header>
+
+      <mat-card-content class="main-card-content">
+        <h1>{{ this.storeFacade.currentWeatherText$ | async }}</h1>
+        <div class="forcast">
+          <app-forcast-card
+            *ngFor="let forcast of this.storeFacade.fiveDayForcast$ | async"
+            [forcast]="forcast"
+          >
+          </app-forcast-card>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </ng-container>
 </div>

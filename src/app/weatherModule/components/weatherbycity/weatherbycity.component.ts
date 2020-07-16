@@ -125,36 +125,12 @@ export class WeatherbycityComponent implements OnInit, OnDestroy {
       .subscribe();
   }
 
-  addRemoveFromFav() {
-    this.storeFacade.currentSelectedCity$
-      .pipe(
-        tap((selectedCity) => {
-          if (this.inFavorites === 'primary') {
-            this._store.dispatch(
-              favoriteAction.addFavorite({
-                payload: {
-                  fav: {
-                    Key: selectedCity.Key,
-                    LocalizedName: selectedCity.LocalizedName,
-                  },
-                },
-              })
-            );
-          } else {
-            this._store.dispatch(
-              favoriteAction.removeFavorite({
-                payload: {
-                  fav: {
-                    Key: selectedCity.Key,
-                    LocalizedName: selectedCity.LocalizedName,
-                  },
-                },
-              })
-            );
-          }
-        })
-      )
-      .subscribe();
+  addRemoveFromFav(areaName: string, areaKey: string) {
+    if (this.inFavorites === 'primary') {
+      this.storeFacade.addToFavorites(areaName, areaKey);
+    } else {
+      this.storeFacade.removeFromFavorites(areaName, areaKey);
+    }
   }
 
   ngOnInit(): void {}

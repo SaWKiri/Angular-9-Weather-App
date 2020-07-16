@@ -21,6 +21,9 @@ export class WeatherAppStoreService {
     select(weatherAppSelectors.areaWeatherSelectors.areaName),
     filter((option) => option !== null),
   );
+  currentCityKey$ = this._store.pipe(
+    select(weatherAppSelectors.areaWeatherSelectors.areaKey)
+  );
 
   currentCityTemp$ = this._store.pipe(
     select(weatherAppSelectors.areaWeatherSelectors.areaTemp),
@@ -57,6 +60,13 @@ export class WeatherAppStoreService {
     select(weatherAppSelectors.optionSelectors.selectedCity),
     tap((a) => a)
   );
+  addToFavorites = (key: string, name: string) => {
+    this._store.dispatch(
+      favoriteAction.addFavorite({
+        payload: { fav: { Key: key, LocalizedName: name } },
+      })
+    );
+  };
 
   removeFromFavorites = (key: string, name: string) => {
     this._store.dispatch(
