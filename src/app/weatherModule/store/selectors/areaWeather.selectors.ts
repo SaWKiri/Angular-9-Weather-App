@@ -29,6 +29,6 @@ export const areaWeatherSelectors = {
   ),
   areaWeatherForcast: createSelector(
     weatherAppSelector,
-    (state: ModuleState) => state.forcast
+    (state: ModuleState) => state.areaWeather.Forcast
   ),
 };

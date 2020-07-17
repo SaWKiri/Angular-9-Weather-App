@@ -25,7 +25,7 @@ export class AreaWeatherEffect {
             areaWeather: {
               AreaKey: payload.areaKey,
               AreaName: payload.areaName,
-              ...cityWeather,
+              ...cityWeather[0],
               Forcast: forcast,
             },
           },

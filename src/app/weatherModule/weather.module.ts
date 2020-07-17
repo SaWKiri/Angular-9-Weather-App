@@ -19,12 +19,10 @@ import { httpInterceptorProviders } from "./interceptors";
 import { StoreModule } from '@ngrx/store';
 import * as fromModule from './store/reducers'
 import { EffectsModule } from '@ngrx/effects';
-import { CityWeatherEffects } from './store/effects/cityWeather.effects';
-import { SelectCityEffects } from './store/effects/selectedCity.effects';
-import { ForcastEffects } from './store/effects/forcast.effects';
 import {MatButtonModule} from '@angular/material/button';
 import { EnglishOnlyDirective } from './directives/english-only.directive';
 import { FavoritesComponent } from './components/favorites/favorites.component';
+import { AreaWeatherEffect } from './store/effects/areaWeather.effects';
 
 
 @NgModule({
@@ -40,7 +38,7 @@ import { FavoritesComponent } from './components/favorites/favorites.component';
     MatInputModule,
     MatCardModule,
     MatAutocompleteModule,
-    EffectsModule.forFeature([CityWeatherEffects,SelectCityEffects,ForcastEffects]),
+    EffectsModule.forFeature([AreaWeatherEffect]),
     StoreModule.forFeature(fromModule.CITY_WEATHER_FEATURE,fromModule.reducers),
   ],
   providers: []

@@ -11,6 +11,7 @@ import { Favorite } from '../models/favorite';
 import { favoriteAction } from '../store/actions/favorites.actions';
 import { TempSelectionService } from './tempSelection.service';
 import { async } from '@angular/core/testing';
+import { areaWeatherAction } from '../store/actions/areaWeather.action';
 
 @Injectable({
   providedIn: 'root',
@@ -20,6 +21,10 @@ export class WeatherAppStoreService {
     private _store: Store<ModuleState>,
     private tempSelectionService: TempSelectionService
   ) {}
+
+  areaWeather$ = this._store.pipe(
+    select(weatherAppSelectors.areaWeatherSelectors.areaWeather),
+  );
 
   currentCityName$ = this._store.pipe(
     select(weatherAppSelectors.areaWeatherSelectors.areaName),
@@ -60,10 +65,19 @@ export class WeatherAppStoreService {
     filter((a) => a !== null)
   );
 
-  currentSelectedCity$: Observable<autoCompleteOption> = this._store.pipe(
-    select(weatherAppSelectors.optionSelectors.selectedCity),
-    tap((a) => a)
-  );
+  // currentSelectedCity$: Observable<autoCompleteOption> = this._store.pipe(
+  //   select(weatherAppSelectors.optionSelectors.selectedCity),
+  //   tap((a) => a)
+  // );
+
+  setAreaWeather = (key: string, name: string) => {
+    this._store.dispatch(
+      areaWeatherAction.getAreaWeather({
+        payload: { areaKey: key, areaName: name },
+      })
+    );
+  };
+
   addToFavorites = (key: string, name: string) => {
     this._store.dispatch(
       favoriteAction.addFavorite({
