@@ -23,7 +23,7 @@ export class WeatherAppStoreService {
   ) {}
 
   areaWeather$ = this._store.pipe(
-    select(weatherAppSelectors.areaWeatherSelectors.areaWeather),
+    select(weatherAppSelectors.areaWeatherSelectors.areaWeather)
   );
 
   currentCityName$ = this._store.pipe(
@@ -38,10 +38,12 @@ export class WeatherAppStoreService {
     select(weatherAppSelectors.areaWeatherSelectors.areaTemp),
     filter((temp) => temp !== null),
     map((temp) => {
-      if (this.tempSelectionService.getIsCelsius()) {
-        return temp.Metric.Value + ' ' + temp.Metric.Unit;
+      if (temp !== undefined) {
+        if (this.tempSelectionService.getIsCelsius()) {
+          return temp.Metric.Value + ' ' + temp.Metric.Unit;
+        }
+        return temp.Imperial.Value + ' ' + temp.Imperial.Unit;
       }
-      return temp.Imperial.Value + ' ' + temp.Imperial.Unit;
     })
   );
   cuurentWeatherIcon$ = this._store.pipe(
@@ -64,11 +66,6 @@ export class WeatherAppStoreService {
     select(weatherAppSelectors.favoritesSelectors.getFavorites),
     filter((a) => a !== null)
   );
-
-  // currentSelectedCity$: Observable<autoCompleteOption> = this._store.pipe(
-  //   select(weatherAppSelectors.optionSelectors.selectedCity),
-  //   tap((a) => a)
-  // );
 
   setAreaWeather = (key: string, name: string) => {
     this._store.dispatch(

@@ -30,7 +30,7 @@ export const autocomplete = [
   },
 ];
 
-export const currentCondition = {
+export const currentCondition = [{
   LocalObservationDateTime: new Date('2020-07-09T13:15:00+03:00'),
   EpochTime: 1594289700,
   WeatherText: 'Partly sunny',
@@ -50,9 +50,65 @@ export const currentCondition = {
       UnitType: 18,
     } as MetricParams,
   },
-  MobileLink: 'http://m.accuweather.com/en/il/tel-aviv/215854/current-weather/215854?lang=en-us',
-  Link: 'http://www.accuweather.com/en/il/tel-aviv/215854/current-weather/215854?lang=en-us',
-} as CityWeather;
+  MobileLink:
+    'http://m.accuweather.com/en/il/tel-aviv/215854/current-weather/215854?lang=en-us',
+  Link:
+    'http://www.accuweather.com/en/il/tel-aviv/215854/current-weather/215854?lang=en-us',
+} as CityWeather];
+
+export const currentConditionTelAviv = [{
+  LocalObservationDateTime: '2020-07-19T00:16:00+03:00',
+  EpochTime: 1595106960,
+  WeatherText: 'Clear',
+  WeatherIcon: 33,
+  HasPrecipitation: false,
+  PrecipitationType: null,
+  IsDayTime: false,
+  Temperature: {
+    Metric: { Value: 25.3, Unit: 'C', UnitType: 17 },
+    Imperial: { Value: 78, Unit: 'F', UnitType: 18 },
+  },
+  MobileLink:
+    'http://m.accuweather.com/en/il/tel-aviv/215854/current-weather/215854?lang=en-us',
+  Link:
+    'http://www.accuweather.com/en/il/tel-aviv/215854/current-weather/215854?lang=en-us',
+}];
+
+export const currentCondition3431644 = [{
+  LocalObservationDateTime: '2020-07-19T04:25:00+07:00',
+  EpochTime: 1595107500,
+  WeatherText: 'Some clouds',
+  WeatherIcon: 36,
+  HasPrecipitation: false,
+  PrecipitationType: null,
+  IsDayTime: false,
+  Temperature: {
+    Metric: { Value: 24.4, Unit: 'C', UnitType: 17 },
+    Imperial: { Value: 76, Unit: 'F', UnitType: 18 },
+  },
+  MobileLink:
+    'http://m.accuweather.com/en/id/telanaipura/3431644/current-weather/3431644?lang=en-us',
+  Link:
+    'http://www.accuweather.com/en/id/telanaipura/3431644/current-weather/3431644?lang=en-us',
+}];
+
+export const currentCondition325876 = [{
+  LocalObservationDateTime: '2020-07-19T05:25:00+08:00',
+  EpochTime: 1595107500,
+  WeatherText: 'Rain',
+  WeatherIcon: 18,
+  HasPrecipitation: true,
+  PrecipitationType: 'Rain',
+  IsDayTime: false,
+  Temperature: {
+    Metric: { Value: 27.2, Unit: 'C', UnitType: 17 },
+    Imperial: { Value: 81, Unit: 'F', UnitType: 18 },
+  },
+  MobileLink:
+    'http://m.accuweather.com/en/sg/telok-blangah-new-town/300558/current-weather/300558?lang=en-us',
+  Link:
+    'http://www.accuweather.com/en/sg/telok-blangah-new-town/300558/current-weather/300558?lang=en-us',
+}];
 
 export const forcast = {
   Headline: {
@@ -227,7 +283,50 @@ export const forcast = {
   ],
 };
 
-
-export const geoPositionSearch = {
-
-}
+export const geoPositionSearchKriyatAtidim = {
+  Version: 1,
+  Key: '215805',
+  Type: 'City',
+  Rank: 95,
+  LocalizedName: 'Kiryat Atidim',
+  EnglishName: 'Kiryat Atidim',
+  PrimaryPostalCode: '',
+  Region: {
+    ID: 'MEA',
+    LocalizedName: 'Middle East',
+    EnglishName: 'Middle East',
+  },
+  Country: { ID: 'IL', LocalizedName: 'Israel', EnglishName: 'Israel' },
+  AdministrativeArea: {
+    ID: 'TA',
+    LocalizedName: 'Tel Aviv',
+    EnglishName: 'Tel Aviv',
+    Level: 1,
+    LocalizedType: 'District',
+    EnglishType: 'District',
+    CountryID: 'IL',
+  },
+  TimeZone: {
+    Code: 'IDT',
+    Name: 'Asia/Jerusalem',
+    GmtOffset: 3,
+    IsDaylightSaving: true,
+    NextOffsetChange: '2020-10-24T23:00:00Z',
+  },
+  GeoPosition: {
+    Latitude: 32.117,
+    Longitude: 34.845,
+    Elevation: {
+      Metric: { Value: 47, Unit: 'm', UnitType: 5 },
+      Imperial: { Value: 154, Unit: 'ft', UnitType: 0 },
+    },
+  },
+  IsAlias: false,
+  SupplementalAdminAreas: [],
+  DataSets: [
+    'AirQualityCurrentConditions',
+    'AirQualityForecasts',
+    'Alerts',
+    'ForecastConfidence',
+  ],
+};
