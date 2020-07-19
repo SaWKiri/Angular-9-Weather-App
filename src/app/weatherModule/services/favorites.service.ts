@@ -37,7 +37,6 @@ export class FavoritesService {
   }
 
   removeFromFavorites(name: string, key: string) {
-    debugger;
     this.storeFacade.removeFromFavorites(key, name);
   }
 }

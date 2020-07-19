@@ -23,7 +23,6 @@ const favoritesReducer = createReducer(
     }
   }),
   on(favoriteAction.removeFavorite, (state, action) => {
-    debugger;
     if (!state) {
       return state;
     }
