@@ -4,6 +4,9 @@ import { switchMap, take, map } from 'rxjs/operators';
 import { AccuweatherApiService } from './accuweather-api.service';
 import { Observable, zip, of } from 'rxjs';
 import { CityWeather } from '../models/CityWeather';
+import { AreaWeather } from '../models/areaWeather';
+import { Favorite } from '../models/favorite';
+import { FavoriteWithCityWeather } from '../models/favoriteWithCityWeather';
 
 @Injectable({
   providedIn: 'root',
@@ -16,26 +19,25 @@ export class FavoritesService {
 
   getFavorites() {
     return this.storeFacade.favorites$.pipe(
-      switchMap((f) => {
-        let data: Observable<CityWeather>[] = [];
-        if(f.length === 0)
-        {
-          return of([]);
-        }
-        f.forEach((element) => {
-          data.push(this.accuWeatherApi.getCurrentConditions(element.Key));
-        });
-        return zip(...data);
-      }),
-      map(zip => zip)
+      switchMap((favorites) => {
+         const favoritesWithCityWeather = favorites.map((favorite) =>
+          this.accuWeatherApi.getCurrentConditions(favorite.Key).pipe(
+            map(
+              (cityWeather) =>
+                ({
+                  ...favorite,
+                  ...cityWeather,
+                } as FavoriteWithCityWeather)
+            )
+          )
+        );
+        return zip(...favoritesWithCityWeather);
+      })
     );
   }
 
-  getCurrentWeather(key: string) {
-    return this.accuWeatherApi.getCurrentConditions(key);
-  }
-
   removeFromFavorites(name: string, key: string) {
+    debugger;
     this.storeFacade.removeFromFavorites(key, name);
   }
 }

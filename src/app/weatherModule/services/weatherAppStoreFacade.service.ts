@@ -5,12 +5,9 @@ import { filter, map, tap } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 import { weatherAppSelectors } from '../store/selectors';
 import { DailyForecast } from '../models/forcast';
-import { autoCompleteOption } from '../models/autocomplete';
-import { weatherAppSelector } from '../store/selectors/common';
 import { Favorite } from '../models/favorite';
 import { favoriteAction } from '../store/actions/favorites.actions';
 import { TempSelectionService } from './tempSelection.service';
-import { async } from '@angular/core/testing';
 import { areaWeatherAction } from '../store/actions/areaWeather.action';
 
 @Injectable({

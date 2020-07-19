@@ -25,7 +25,7 @@ export class AreaWeatherEffect {
             areaWeather: {
               AreaKey: payload.areaKey,
               AreaName: payload.areaName,
-              ...cityWeather[0],
+              ...cityWeather,
               Forcast: forcast,
             },
           },
@@ -37,6 +37,5 @@ export class AreaWeatherEffect {
   constructor(
     private actions$: Actions,
     private accuweatherApiService: AccuweatherApiService,
-    private _store: Store<ModuleState>
   ) {}
 }

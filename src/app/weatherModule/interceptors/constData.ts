@@ -30,7 +30,7 @@ export const autocomplete = [
   },
 ];
 
-export const currentCondition = [{
+export const currentCondition = {
   LocalObservationDateTime: new Date('2020-07-09T13:15:00+03:00'),
   EpochTime: 1594289700,
   WeatherText: 'Partly sunny',
@@ -54,9 +54,9 @@ export const currentCondition = [{
     'http://m.accuweather.com/en/il/tel-aviv/215854/current-weather/215854?lang=en-us',
   Link:
     'http://www.accuweather.com/en/il/tel-aviv/215854/current-weather/215854?lang=en-us',
-} as CityWeather];
+} as CityWeather;
 
-export const currentConditionTelAviv = [{
+export const currentConditionTelAviv = {
   LocalObservationDateTime: '2020-07-19T00:16:00+03:00',
   EpochTime: 1595106960,
   WeatherText: 'Clear',
@@ -72,9 +72,9 @@ export const currentConditionTelAviv = [{
     'http://m.accuweather.com/en/il/tel-aviv/215854/current-weather/215854?lang=en-us',
   Link:
     'http://www.accuweather.com/en/il/tel-aviv/215854/current-weather/215854?lang=en-us',
-}];
+};
 
-export const currentCondition3431644 = [{
+export const currentCondition3431644 = {
   LocalObservationDateTime: '2020-07-19T04:25:00+07:00',
   EpochTime: 1595107500,
   WeatherText: 'Some clouds',
@@ -90,9 +90,9 @@ export const currentCondition3431644 = [{
     'http://m.accuweather.com/en/id/telanaipura/3431644/current-weather/3431644?lang=en-us',
   Link:
     'http://www.accuweather.com/en/id/telanaipura/3431644/current-weather/3431644?lang=en-us',
-}];
+};
 
-export const currentCondition325876 = [{
+export const currentCondition325876 = {
   LocalObservationDateTime: '2020-07-19T05:25:00+08:00',
   EpochTime: 1595107500,
   WeatherText: 'Rain',
@@ -108,7 +108,7 @@ export const currentCondition325876 = [{
     'http://m.accuweather.com/en/sg/telok-blangah-new-town/300558/current-weather/300558?lang=en-us',
   Link:
     'http://www.accuweather.com/en/sg/telok-blangah-new-town/300558/current-weather/300558?lang=en-us',
-}];
+};
 
 export const forcast = {
   Headline: {
