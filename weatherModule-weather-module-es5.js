@@ -2,13 +2,21 @@ function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArra
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
 function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -407,27 +415,27 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var rxjs_operators__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-    /*! rxjs/operators */
-    "./node_modules/rxjs/_esm2015/operators/index.js");
-    /* harmony import */
-
-
-    var _services_favorites_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    var _services_favorites_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! ../../services/favorites.service */
     "./src/app/weatherModule/services/favorites.service.ts");
     /* harmony import */
 
 
-    var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! @angular/common */
     "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
     /* harmony import */
 
 
-    var _angular_material_card__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    var _angular_material_card__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! @angular/material/card */
     "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/card.js");
+    /* harmony import */
+
+
+    var _angular_material_button__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! @angular/material/button */
+    "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/button.js");
     /* harmony import */
 
 
@@ -463,35 +471,39 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](9, "div", 5);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "mat-icon", 6);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "button", 6);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function FavoritesComponent_mat_card_1_Template_mat_icon_click_10_listener() {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function FavoritesComponent_mat_card_1_Template_button_click_10_listener() {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r4);
 
           var weather_r2 = ctx.$implicit;
 
           var ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r3.removeFromFavorites(weather_r2[0]);
+          return ctx_r3.removeFromFavorites(weather_r2);
         });
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](11, "highlight_off");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](11, "mat-icon");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](12, "highlight_off");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](12, "mat-card-content", 7);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "p", 8);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "mat-card-content", 7);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](14);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](14, "p", 8);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](15);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "p", 9);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "p", 9);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](16);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](17);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -503,31 +515,29 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       if (rf & 2) {
         var weather_r2 = ctx.$implicit;
 
-        var ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate1"]("src", "assets/weather-icons/", weather_r2.WeatherIcon, ".png", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate1"]("src", "assets/weather-icons/", weather_r2[0].WeatherIcon, ".png", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind1"](5, 5, ctx_r0.extractName(weather_r2[0].Link)));
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind1"](5, 5, weather_r2.LocalizedName));
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind2"](8, 7, weather_r2[0].LocalObservationDateTime, "EEEE"));
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind2"](8, 7, weather_r2.LocalObservationDateTime, "EEEE"));
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](7);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](8);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", weather_r2[0].WeatherText, " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", weather_r2.WeatherText, " ");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", weather_r2[0].Temperature.Metric.Value + "" + weather_r2[0].Temperature.Metric.Unit, " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", weather_r2.Temperature.Metric.Value + "" + weather_r2.Temperature.Metric.Unit, " ");
       }
     }
 
-    function FavoritesComponent_div_2_Template(rf, ctx) {
+    function FavoritesComponent_div_3_Template(rf, ctx) {
       if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 10);
 
@@ -543,40 +553,25 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var FavoritesComponent = /*#__PURE__*/function () {
       function FavoritesComponent(favoritesService) {
-        var _this2 = this;
-
         _classCallCheck(this, FavoritesComponent);
 
         this.favoritesService = favoritesService;
-        this.favorites = [];
-        this.favoritesService.getFavorites().pipe( // distinctUntilChanged((a,b) => JSON.stringify(a) === JSON.stringify(b)),
-        Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["tap"])(function (a) {
-          _this2.favorites = a;
-        })).subscribe();
       }
 
       _createClass(FavoritesComponent, [{
         key: "ngOnInit",
-        value: function ngOnInit() {}
+        value: function ngOnInit() {} // Reference:
+        // https://stackoverflow.com/questions/56203596/angular-material-button-not-clickable-when-iterating-over-new-objects-when-an-in
+
       }, {
-        key: "extractName",
-        value: function extractName(link) {
-          return this.extractFromArrayAt(link.split('/'), 4);
-        }
-      }, {
-        key: "extractKey",
-        value: function extractKey(link) {
-          return this.extractFromArrayAt(link.split('/'), 3);
-        }
-      }, {
-        key: "extractFromArrayAt",
-        value: function extractFromArrayAt(arr, index) {
-          return arr[arr.length - index];
+        key: "trackByIndex",
+        value: function trackByIndex(index, item) {
+          return index;
         }
       }, {
         key: "removeFromFavorites",
         value: function removeFromFavorites(weather) {
-          this.favoritesService.removeFromFavorites(this.extractName(weather.Link), this.extractKey(weather.Link));
+          this.favoritesService.removeFromFavorites(weather.LocalizedName, weather.Key);
         }
       }]);
 
@@ -584,38 +579,42 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     }();
 
     FavoritesComponent.ɵfac = function FavoritesComponent_Factory(t) {
-      return new (t || FavoritesComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_favorites_service__WEBPACK_IMPORTED_MODULE_2__["FavoritesService"]));
+      return new (t || FavoritesComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_favorites_service__WEBPACK_IMPORTED_MODULE_1__["FavoritesService"]));
     };
 
     FavoritesComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
       type: FavoritesComponent,
       selectors: [["ng-component"]],
-      decls: 3,
-      vars: 2,
-      consts: [[1, "grid-container"], ["class", "card", 4, "ngFor", "ngForOf"], ["class", "empty-fav", 4, "ngIf"], [1, "card"], ["mat-card-avatar", "", 1, "header-image", 3, "src"], [1, "spacer"], ["aria-hidden", "false", "aria-label", "remove", 3, "click"], [1, "card-content"], [1, "weather-text"], [1, "weather-temp"], [1, "empty-fav"]],
+      decls: 5,
+      vars: 7,
+      consts: [[1, "grid-container"], ["class", "card", 4, "ngFor", "ngForOf", "ngForTrackBy"], ["class", "empty-fav", 4, "ngIf"], [1, "card"], ["mat-card-avatar", "", 1, "header-image", 3, "src"], [1, "spacer"], ["mat-icon-button", "", 3, "click"], [1, "card-content"], [1, "weather-text"], [1, "weather-temp"], [1, "empty-fav"]],
       template: function FavoritesComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, FavoritesComponent_mat_card_1_Template, 17, 10, "mat-card", 1);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, FavoritesComponent_mat_card_1_Template, 18, 10, "mat-card", 1);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipe"](2, "async");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, FavoritesComponent_div_2_Template, 3, 0, "div", 2);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](3, FavoritesComponent_div_3_Template, 3, 0, "div", 2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipe"](4, "async");
         }
 
         if (rf & 2) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.favorites);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind1"](2, 3, ctx.favoritesService.getFavorites()))("ngForTrackBy", ctx.trackByIndex);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.favorites.length === 0);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind1"](4, 5, ctx.favoritesService.getFavorites()));
         }
       },
-      directives: [_angular_common__WEBPACK_IMPORTED_MODULE_3__["NgForOf"], _angular_common__WEBPACK_IMPORTED_MODULE_3__["NgIf"], _angular_material_card__WEBPACK_IMPORTED_MODULE_4__["MatCard"], _angular_material_card__WEBPACK_IMPORTED_MODULE_4__["MatCardHeader"], _angular_material_card__WEBPACK_IMPORTED_MODULE_4__["MatCardAvatar"], _angular_material_card__WEBPACK_IMPORTED_MODULE_4__["MatCardTitle"], _angular_material_card__WEBPACK_IMPORTED_MODULE_4__["MatCardSubtitle"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_5__["MatIcon"], _angular_material_card__WEBPACK_IMPORTED_MODULE_4__["MatCardContent"]],
-      pipes: [_angular_common__WEBPACK_IMPORTED_MODULE_3__["TitleCasePipe"], _angular_common__WEBPACK_IMPORTED_MODULE_3__["DatePipe"]],
+      directives: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["NgForOf"], _angular_common__WEBPACK_IMPORTED_MODULE_2__["NgIf"], _angular_material_card__WEBPACK_IMPORTED_MODULE_3__["MatCard"], _angular_material_card__WEBPACK_IMPORTED_MODULE_3__["MatCardHeader"], _angular_material_card__WEBPACK_IMPORTED_MODULE_3__["MatCardAvatar"], _angular_material_card__WEBPACK_IMPORTED_MODULE_3__["MatCardTitle"], _angular_material_card__WEBPACK_IMPORTED_MODULE_3__["MatCardSubtitle"], _angular_material_button__WEBPACK_IMPORTED_MODULE_4__["MatButton"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_5__["MatIcon"], _angular_material_card__WEBPACK_IMPORTED_MODULE_3__["MatCardContent"]],
+      pipes: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["AsyncPipe"], _angular_common__WEBPACK_IMPORTED_MODULE_2__["TitleCasePipe"], _angular_common__WEBPACK_IMPORTED_MODULE_2__["DatePipe"]],
       styles: [".card[_ngcontent-%COMP%] {\n  max-width: 400px;\n}\n\n.header-image[_ngcontent-%COMP%] {\n  background-size: cover;\n}\n\n.grid-container[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: repeat(4, 1fr);\n  grid-auto-rows: auto;\n  grid-column-gap: 20px;\n  grid-row-gap: 20px;\n  margin-top: 50px;\n}\n\n.spacer[_ngcontent-%COMP%] {\n  flex: 1 1 auto;\n}\n\n.card-content[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-flow: column;\n}\n\n.empty-fav[_ngcontent-%COMP%] {\n  display: flex;\n  margin: 82px auto 32px;\n  padding: 0 16px;\n  max-width: 960px;\n  flex-direction: column;\n  align-items: center;\n}\n\n.weather-text[_ngcontent-%COMP%] {\n  font-size: 30px;\n  font-weight: 800;\n}\n\n.weather-temp[_ngcontent-%COMP%] {\n  font-weight: 800;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2JsYWNreS9Qcm9ncmFtbWluZy93ZWF0aGVyLWFwcC93ZWF0aGVyLWFwcC9zcmMvYXBwL3dlYXRoZXJNb2R1bGUvY29tcG9uZW50cy9mYXZvcml0ZXMvZmF2b3JpdGVzLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC93ZWF0aGVyTW9kdWxlL2NvbXBvbmVudHMvZmF2b3JpdGVzL2Zhdm9yaXRlcy5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGdCQUFBO0FDQ0Y7O0FERUE7RUFDRSxzQkFBQTtBQ0NGOztBREVBO0VBQ0UsYUFBQTtFQUNBLHFDQUFBO0VBRUEsb0JBQUE7RUFDQSxxQkFBQTtFQUNBLGtCQUFBO0VBQ0EsZ0JBQUE7QUNBRjs7QURHQTtFQUNFLGNBQUE7QUNBRjs7QURHQTtFQUNFLGFBQUE7RUFDQSx1QkFBQTtFQUNBLG1CQUFBO0VBQ0EsaUJBQUE7QUNBRjs7QURHQTtFQUNFLGFBQUE7RUFDQSxzQkFBQTtFQUNBLGVBQUE7RUFDQSxnQkFBQTtFQUNBLHNCQUFBO0VBQ0EsbUJBQUE7QUNBRjs7QURHQTtFQUNFLGVBQUE7RUFDQSxnQkFBQTtBQ0FGOztBREdBO0VBQ0UsZ0JBQUE7QUNBRiIsImZpbGUiOiJzcmMvYXBwL3dlYXRoZXJNb2R1bGUvY29tcG9uZW50cy9mYXZvcml0ZXMvZmF2b3JpdGVzLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmNhcmQge1xuICBtYXgtd2lkdGg6IDQwMHB4O1xufVxuXG4uaGVhZGVyLWltYWdlIHtcbiAgYmFja2dyb3VuZC1zaXplOiBjb3Zlcjtcbn1cblxuLmdyaWQtY29udGFpbmVyIHtcbiAgZGlzcGxheTogZ3JpZDtcbiAgZ3JpZC10ZW1wbGF0ZS1jb2x1bW5zOiByZXBlYXQoNCwgMWZyKTtcbiAgLy8gZ3JpZC10ZW1wbGF0ZS1yb3dzOiByZXBlYXQoMTAwLCAxZnIpO1xuICBncmlkLWF1dG8tcm93czogYXV0bztcbiAgZ3JpZC1jb2x1bW4tZ2FwOiAyMHB4O1xuICBncmlkLXJvdy1nYXA6IDIwcHg7XG4gIG1hcmdpbi10b3A6IDUwcHg7XG59XG5cbi5zcGFjZXIge1xuICBmbGV4OiAxIDEgYXV0bztcbn1cblxuLmNhcmQtY29udGVudCB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICBhbGlnbi1pdGVtczogY2VudGVyO1xuICBmbGV4LWZsb3c6IGNvbHVtbjtcbn1cblxuLmVtcHR5LWZhdiB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIG1hcmdpbjogODJweCBhdXRvIDMycHg7XG4gIHBhZGRpbmc6IDAgMTZweDtcbiAgbWF4LXdpZHRoOiA5NjBweDtcbiAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbn1cblxuLndlYXRoZXItdGV4dCB7XG4gIGZvbnQtc2l6ZTogMzBweDtcbiAgZm9udC13ZWlnaHQ6IDgwMDtcbn1cblxuLndlYXRoZXItdGVtcCB7XG4gIGZvbnQtd2VpZ2h0OiA4MDA7XG59XG4iLCIuY2FyZCB7XG4gIG1heC13aWR0aDogNDAwcHg7XG59XG5cbi5oZWFkZXItaW1hZ2Uge1xuICBiYWNrZ3JvdW5kLXNpemU6IGNvdmVyO1xufVxuXG4uZ3JpZC1jb250YWluZXIge1xuICBkaXNwbGF5OiBncmlkO1xuICBncmlkLXRlbXBsYXRlLWNvbHVtbnM6IHJlcGVhdCg0LCAxZnIpO1xuICBncmlkLWF1dG8tcm93czogYXV0bztcbiAgZ3JpZC1jb2x1bW4tZ2FwOiAyMHB4O1xuICBncmlkLXJvdy1nYXA6IDIwcHg7XG4gIG1hcmdpbi10b3A6IDUwcHg7XG59XG5cbi5zcGFjZXIge1xuICBmbGV4OiAxIDEgYXV0bztcbn1cblxuLmNhcmQtY29udGVudCB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICBhbGlnbi1pdGVtczogY2VudGVyO1xuICBmbGV4LWZsb3c6IGNvbHVtbjtcbn1cblxuLmVtcHR5LWZhdiB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIG1hcmdpbjogODJweCBhdXRvIDMycHg7XG4gIHBhZGRpbmc6IDAgMTZweDtcbiAgbWF4LXdpZHRoOiA5NjBweDtcbiAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbn1cblxuLndlYXRoZXItdGV4dCB7XG4gIGZvbnQtc2l6ZTogMzBweDtcbiAgZm9udC13ZWlnaHQ6IDgwMDtcbn1cblxuLndlYXRoZXItdGVtcCB7XG4gIGZvbnQtd2VpZ2h0OiA4MDA7XG59Il19 */"]
     });
     /*@__PURE__*/
@@ -629,7 +628,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         }]
       }], function () {
         return [{
-          type: _services_favorites_service__WEBPACK_IMPORTED_MODULE_2__["FavoritesService"]
+          type: _services_favorites_service__WEBPACK_IMPORTED_MODULE_1__["FavoritesService"]
         }];
       }, null);
     })();
@@ -1200,7 +1199,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           var ctx_r12 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return inFavorite_r11 === "accent" ? ctx_r12.storeFacade.removeFromFavorites(areaName_r8, areaWeather_r6.AreaKey) : ctx_r12.storeFacade.addToFavorites(areaName_r8, areaWeather_r6.AreaKey);
+          return inFavorite_r11 === "accent" ? ctx_r12.storeFacade.removeFromFavorites(areaWeather_r6.AreaKey, areaName_r8) : ctx_r12.storeFacade.addToFavorites(areaWeather_r6.AreaKey, areaName_r8);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "mat-icon");
@@ -1355,7 +1354,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var WeatherbycityComponent = /*#__PURE__*/function () {
       function WeatherbycityComponent(accuweatherApiService, geoLocationService, storeFacade) {
-        var _this3 = this;
+        var _this2 = this;
 
         _classCallCheck(this, WeatherbycityComponent);
 
@@ -1366,14 +1365,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.autoCompleteInput.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["filter"])(function (data) {
           return data.length > 0;
         }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["debounceTime"])(900), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["switchMap"])(function (data) {
-          var a = _this3.accuweatherApiService.getAutoComplete(data);
+          var a = _this2.accuweatherApiService.getAutoComplete(data);
 
           return a;
         })).subscribe(function (suggestions) {
-          _this3.autoCompletedSuggestions = suggestions;
+          _this2.autoCompletedSuggestions = suggestions;
         }, console.error);
         this.geoLocationService.getAccuWeatherByLocation().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["tap"])(function (location) {
-          _this3.storeFacade.setAreaWeather(location.Key, location.LocalizedName);
+          _this2.storeFacade.setAreaWeather(location.Key, location.LocalizedName);
         })).subscribe();
       }
 
@@ -1775,27 +1774,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(FavoritesService, [{
         key: "getFavorites",
         value: function getFavorites() {
-          var _this4 = this;
+          var _this3 = this;
 
-          return this.storeFacade.favorites$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["switchMap"])(function (f) {
-            var data = [];
-
-            if (f.length === 0) {
-              return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])([]);
-            }
-
-            f.forEach(function (element) {
-              data.push(_this4.accuWeatherApi.getCurrentConditions(element.Key));
+          return this.storeFacade.favorites$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["switchMap"])(function (favorites) {
+            var favoritesWithCityWeather = favorites.map(function (favorite) {
+              return _this3.accuWeatherApi.getCurrentConditions(favorite.Key).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(function (cityWeather) {
+                return Object.assign(Object.assign({}, favorite), cityWeather);
+              }));
             });
-            return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["zip"]).apply(void 0, data);
-          }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(function (zip) {
-            return zip;
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["zip"]).apply(void 0, _toConsumableArray(favoritesWithCityWeather));
           }));
-        }
-      }, {
-        key: "getCurrentWeather",
-        value: function getCurrentWeather(key) {
-          return this.accuWeatherApi.getCurrentConditions(key);
         }
       }, {
         key: "removeFromFavorites",
@@ -1882,7 +1870,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var GeolocationService = /*#__PURE__*/function () {
       function GeolocationService(accuweatherApiService) {
-        var _this5 = this;
+        var _this4 = this;
 
         _classCallCheck(this, GeolocationService);
 
@@ -1894,7 +1882,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         }
 
         navigator.geolocation.getCurrentPosition(function (position) {
-          _this5.updatgeGeolocatgion({
+          _this4.updatgeGeolocatgion({
             lat: position.coords.latitude,
             lon: position.coords.longitude
           });
@@ -2040,7 +2028,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 
     var TempSelectionService = function TempSelectionService() {
-      var _this6 = this;
+      var _this5 = this;
 
       _classCallCheck(this, TempSelectionService);
 
@@ -2048,11 +2036,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       this.isCelsius$ = this.isCelsiusSubject.asObservable();
 
       this.getIsCelsius = function () {
-        return _this6.isCelsiusSubject.value;
+        return _this5.isCelsiusSubject.value;
       };
 
       this.setIsCelsius = function (isCelsius) {
-        _this6.isCelsiusSubject.next(isCelsius);
+        _this5.isCelsiusSubject.next(isCelsius);
       };
     };
 
@@ -2144,7 +2132,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     "./src/app/weatherModule/services/tempSelection.service.ts");
 
     var WeatherAppStoreService = function WeatherAppStoreService(_store, tempSelectionService) {
-      var _this7 = this;
+      var _this6 = this;
 
       _classCallCheck(this, WeatherAppStoreService);
 
@@ -2158,11 +2146,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       this.currentCityTemp$ = this._store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_1__["select"])(_store_selectors__WEBPACK_IMPORTED_MODULE_3__["weatherAppSelectors"].areaWeatherSelectors.areaTemp), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["filter"])(function (temp) {
         return temp !== null;
       }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (temp) {
-        if (_this7.tempSelectionService.getIsCelsius()) {
-          return temp.Metric.Value + ' ' + temp.Metric.Unit;
-        }
+        if (temp !== undefined) {
+          if (_this6.tempSelectionService.getIsCelsius()) {
+            return temp.Metric.Value + ' ' + temp.Metric.Unit;
+          }
 
-        return temp.Imperial.Value + ' ' + temp.Imperial.Unit;
+          return temp.Imperial.Value + ' ' + temp.Imperial.Unit;
+        }
       }));
       this.cuurentWeatherIcon$ = this._store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_1__["select"])(_store_selectors__WEBPACK_IMPORTED_MODULE_3__["weatherAppSelectors"].areaWeatherSelectors.areaWeatherIcon), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["filter"])(function (a) {
         return a !== null;
@@ -2177,13 +2167,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }));
       this.favorites$ = this._store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_1__["select"])(_store_selectors__WEBPACK_IMPORTED_MODULE_3__["weatherAppSelectors"].favoritesSelectors.getFavorites), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["filter"])(function (a) {
         return a !== null;
-      })); // currentSelectedCity$: Observable<autoCompleteOption> = this._store.pipe(
-      //   select(weatherAppSelectors.optionSelectors.selectedCity),
-      //   tap((a) => a)
-      // );
+      }));
 
       this.setAreaWeather = function (key, name) {
-        _this7._store.dispatch(_store_actions_areaWeather_action__WEBPACK_IMPORTED_MODULE_5__["areaWeatherAction"].getAreaWeather({
+        _this6._store.dispatch(_store_actions_areaWeather_action__WEBPACK_IMPORTED_MODULE_5__["areaWeatherAction"].getAreaWeather({
           payload: {
             areaKey: key,
             areaName: name
@@ -2192,7 +2179,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       };
 
       this.addToFavorites = function (key, name) {
-        _this7._store.dispatch(_store_actions_favorites_actions__WEBPACK_IMPORTED_MODULE_4__["favoriteAction"].addFavorite({
+        _this6._store.dispatch(_store_actions_favorites_actions__WEBPACK_IMPORTED_MODULE_4__["favoriteAction"].addFavorite({
           payload: {
             fav: {
               Key: key,
@@ -2203,7 +2190,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       };
 
       this.removeFromFavorites = function (key, name) {
-        _this7._store.dispatch(_store_actions_favorites_actions__WEBPACK_IMPORTED_MODULE_4__["favoriteAction"].removeFavorite({
+        _this6._store.dispatch(_store_actions_favorites_actions__WEBPACK_IMPORTED_MODULE_4__["favoriteAction"].removeFavorite({
           payload: {
             fav: {
               Key: key,
@@ -2214,7 +2201,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       };
 
       this.isInFavorites = function (key) {
-        return _this7._store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_1__["select"])(_store_selectors__WEBPACK_IMPORTED_MODULE_3__["weatherAppSelectors"].favoritesSelectors.getFavorites), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (favorites) {
+        return _this6._store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_1__["select"])(_store_selectors__WEBPACK_IMPORTED_MODULE_3__["weatherAppSelectors"].favoritesSelectors.getFavorites), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (favorites) {
           return favorites.findIndex(function (f) {
             return f.Key === key;
           }) >= 0 ? 'accent' : 'primary';
@@ -2388,24 +2375,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _services_accuweather_api_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! ../../services/accuweather-api.service */
     "./src/app/weatherModule/services/accuweather-api.service.ts");
-    /* harmony import */
 
-
-    var _ngrx_store__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-    /*! @ngrx/store */
-    "./node_modules/@ngrx/store/__ivy_ngcc__/fesm2015/store.js");
-
-    var AreaWeatherEffect = function AreaWeatherEffect(actions$, accuweatherApiService, _store) {
-      var _this8 = this;
+    var AreaWeatherEffect = function AreaWeatherEffect(actions$, accuweatherApiService) {
+      var _this7 = this;
 
       _classCallCheck(this, AreaWeatherEffect);
 
       this.actions$ = actions$;
       this.accuweatherApiService = accuweatherApiService;
-      this._store = _store;
       this.getAreaWeather$ = Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["createEffect"])(function () {
-        return _this8.actions$.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["ofType"])(_actions_areaWeather_action__WEBPACK_IMPORTED_MODULE_2__["areaWeatherAction"].getAreaWeather), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["switchMap"])(function (val) {
-          return Object(rxjs__WEBPACK_IMPORTED_MODULE_4__["zip"])(Object(rxjs__WEBPACK_IMPORTED_MODULE_4__["of"])(val.payload), _this8.accuweatherApiService.getCurrentConditions(val.payload.areaKey), _this8.accuweatherApiService.get5DaysOfForecasts(val.payload.areaKey, true));
+        return _this7.actions$.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["ofType"])(_actions_areaWeather_action__WEBPACK_IMPORTED_MODULE_2__["areaWeatherAction"].getAreaWeather), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["switchMap"])(function (val) {
+          return Object(rxjs__WEBPACK_IMPORTED_MODULE_4__["zip"])(Object(rxjs__WEBPACK_IMPORTED_MODULE_4__["of"])(val.payload), _this7.accuweatherApiService.getCurrentConditions(val.payload.areaKey), _this7.accuweatherApiService.get5DaysOfForecasts(val.payload.areaKey, true));
         }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (_ref) {
           var _ref2 = _slicedToArray(_ref, 3),
               payload = _ref2[0],
@@ -2417,7 +2397,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               areaWeather: Object.assign(Object.assign({
                 AreaKey: payload.areaKey,
                 AreaName: payload.areaName
-              }, cityWeather[0]), {
+              }, cityWeather), {
                 Forcast: forcast
               })
             }
@@ -2427,7 +2407,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     };
 
     AreaWeatherEffect.ɵfac = function AreaWeatherEffect_Factory(t) {
-      return new (t || AreaWeatherEffect)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["Actions"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_services_accuweather_api_service__WEBPACK_IMPORTED_MODULE_5__["AccuweatherApiService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_ngrx_store__WEBPACK_IMPORTED_MODULE_6__["Store"]));
+      return new (t || AreaWeatherEffect)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["Actions"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_services_accuweather_api_service__WEBPACK_IMPORTED_MODULE_5__["AccuweatherApiService"]));
     };
 
     AreaWeatherEffect.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({
@@ -2444,8 +2424,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           type: _ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["Actions"]
         }, {
           type: _services_accuweather_api_service__WEBPACK_IMPORTED_MODULE_5__["AccuweatherApiService"]
-        }, {
-          type: _ngrx_store__WEBPACK_IMPORTED_MODULE_6__["Store"]
         }];
       }, null);
     })();
